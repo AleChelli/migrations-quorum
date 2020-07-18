@@ -17,8 +17,7 @@ module.exports = function (deployer, network, addresses) {
   const config = TruffleConfig.networks[network];
 
   const web3 = new Web3(new Web3.providers.HttpProvider('http://' + config.host + ':' + config.port));
-
-  console.log('>> Unlocking account 0x1a2f03e56f99c5433eeff1b0c5f511ea3c58c54d');
+  
   web3.personal.unlockAccount(config.from, config.passphrase, 36000);
 
   console.log('>> Deploying migration');
